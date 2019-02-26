@@ -25,8 +25,7 @@ export default {
   }),
   async created() {
     try {
-      console.log('get the things')
-      //this.posts = await PostService.getPosts()
+      this.posts = await PostService.getPosts()
     } catch (err) {
       this.error = err.message
     }
