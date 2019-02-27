@@ -6,30 +6,19 @@
 
 ```bash
 # Install dependencies
-npm install
+yarn
 
 # Start Express Server: http://localhost:5000
-npm start
+yarn start
 
 # Start Vue DevServer: http://localhost:8080
 cd client
-npm run serve
+yarn serve
 
 # Build for production (Will build into server/public, ready for deployment)
 cd client
-npm run build
+yarn build
 ```
-
-## App Info
-
-### Author
-
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
-
-### Version
-
-1.0.0
 
 ### License
 
