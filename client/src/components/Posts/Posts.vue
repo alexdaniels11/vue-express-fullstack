@@ -1,6 +1,5 @@
 <template lang="pug">
-  .container
-    h1 {{ msg }}
+  div
     .create-post
       label(for="createPost") Say Something...
       input#createPost(type="text" v-model="text" placeholder="Create a post")
@@ -9,12 +8,12 @@
     p.error(v-if="error") {{ error }}
     .posts
       .post(v-for="(post, index) in posts" :item="post" :index="index" :key="post._id" @dblclick="deletePost(post._id)")
-        span {{ `${post.createdAt.getDate()}/${post.createdAt.getMonth()}/${post.createdAt.getFullYear()}` }}
+        span {{ `${post.createdAt.getMonth() + 1}/${post.createdAt.getDate()}/${post.createdAt.getFullYear()}` }}
         p.text {{ post.text }}
 </template>
 
 <script>
-import PostService from '../PostService'
+import PostService from '../../PostService'
 
 export default {
   name: 'Posts',
@@ -39,9 +38,6 @@ export default {
       await PostService.deletePost(id)
       this.posts = await PostService.getPosts()
     }
-  },
-  props: {
-    msg: String
   }
 }
 </script>
