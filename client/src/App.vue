@@ -1,19 +1,26 @@
 <template lang="pug">
-  #app
+  #app.container
     .main-header
       router-link.logo(to="/")
-          img(src="https://floralist.azurewebsites.net/images/icon.png")
+          | Dahlia
       .main-header--actions
-        button.main-header--options
-          svg(xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
-            path(d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2")
-            circle(cx="12" cy="7" r="4")
+        b-dropdown(variant="outline-primary" size="sm" right no-caret)
+          template(slot="button-content")
+            svg(xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round")
+              path(d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2")
+              circle(cx="12" cy="7" r="4")
+
+          b-dropdown-item(href="https://www.google.com") My Profile
+          b-dropdown-item(href="#") Settings
+          b-dropdown-divider
+          b-dropdown-item(href="#") Logout
     .main-content
       .left-nav
-        router-link(to="proposals") My Proposals
-        router-link(to="proposals") Customers
-        router-link(to="proposals") Images
-        router-link(to="proposals") Tags
+        b-list-group
+          b-list-group-item(to="/proposals") My Proposals
+          b-list-group-item(to="#") Customers
+          b-list-group-item(to="#") Images
+          b-list-group-item(to="#") Tags
       router-view.router-view
 </template>
 
@@ -46,13 +53,15 @@ export default {
 }
 
 .main-header {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  padding: 8px 16px;
+  padding: 32px 16px 8px;
   width: 100%;
 
   .logo {
-    width: 250px;
+    font-size: 24px;
+    //width: 250px;
 
     img {
       width: 100%;
