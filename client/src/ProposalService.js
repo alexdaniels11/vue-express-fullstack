@@ -2,9 +2,9 @@ import axios from 'axios'
 
 const url = 'api/posts/'
 
-class PostService {
-  // Get posts
-  static getPosts() {
+class ProposalService {
+  // Get proposals
+  static getProposals() {
     return new Promise(async (resolve, reject) => {
       try {
         const res = await axios.get(url)
@@ -21,16 +21,25 @@ class PostService {
     })
   }
   // Create post
-  static insertPost(text) {
+  static insertProposal(title, description, itemName, quantity, price, itemDescription) {
     return axios.post(url, {
-      text
+      title,
+      description,
+      items: {
+        item: {
+          itemName,
+          quantity,
+          price,
+          itemDescription
+        }
+      }
     })
   }
 
   // Delete post
-  static deletePost(id) {
+  static deleteProposal(id) {
     return axios.delete(`${url}${id}`)
   }
 }
 
-export default PostService
+export default ProposalService

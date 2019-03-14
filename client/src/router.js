@@ -16,7 +16,7 @@ export default new Router({
     {
       path: '/proposals',
       name: 'proposals',
-      component: () => import(/* webpackChunkName: "proposals" */ '@/components/Posts/Posts.vue')
+      component: () => import(/* webpackChunkName: "proposals" */ '@/components/Proposals/Proposals.vue')
     }
   ]
 })

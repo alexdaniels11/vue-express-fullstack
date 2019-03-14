@@ -1,5 +1,5 @@
 <template lang="pug">
-  #app.container
+  #app
     .main-header
       router-link.logo(to="/")
           | Dahlia
